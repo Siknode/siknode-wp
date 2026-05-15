@@ -1,10 +1,10 @@
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { 
-  Zap, Rocket, BarChart3, ChevronRight, Target, Globe, 
+  Rocket, ChevronRight, Target, Globe, 
   MousePointer2, Cpu, Search, Settings2, TrendingUp,
-  CheckCircle2, ArrowRight, MessageCircle, Mail, Phone, MapPin, Menu, X,
-  ExternalLink, Sparkles, PieChart, ShieldCheck, Microscope, Layers, Activity
+  CheckCircle2, ArrowRight, MessageCircle, Menu, X,
+  Sparkles, Microscope, Layers, Activity
 } from "lucide-react";
 
 export default function App() {
