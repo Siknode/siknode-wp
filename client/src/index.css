@@ -1,0 +1,111 @@
+@import "tailwindcss";
+
+@theme {
+  --font-display: "Outfit", sans-serif;
+  --font-body: "Inter", sans-serif;
+  --color-background: #020617;
+  --color-primary: #a855f7;
+  --color-secondary: #22d3ee;
+  --color-accent: #f472b6;
+  --color-text-primary: #f8fafc;
+  --color-text-secondary: #94a3b8;
+}
+
+@layer base {
+  body {
+    @apply bg-background text-text-primary antialiased overflow-x-hidden;
+    font-family: var(--font-body);
+  }
+
+  h1, h2, h3, h4 {
+    font-family: var(--font-display);
+  }
+}
+
+@layer components {
+  .glass {
+    @apply bg-white/[0.03] backdrop-blur-3xl border border-white/10;
+  }
+
+  .text-gradient {
+    @apply bg-clip-text text-transparent bg-gradient-to-r from-primary via-secondary to-primary bg-[length:200%_auto];
+    animation: gradient 3s linear infinite;
+  }
+}
+
+@keyframes gradient {
+  0% { background-position: 0% center; }
+  50% { background-position: 100% center; }
+  100% { background-position: 0% center; }
+}
+
+/* Estrelas mais visíveis e rápidas */
+@keyframes stars-move {
+  from { transform: translateY(0); }
+  to { transform: translateY(-1500px); }
+}
+
+.star-layer {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  width: 100%;
+  height: 3000px;
+  background: transparent;
+}
+
+.stars-1 {
+  box-shadow: 
+    15px 120px 2px 1px #FFF, 450px 320px 3px 1px #a855f7, 890px 10px 2px 0px #FFF, 1200px 500px 3px 2px #22d3ee, 
+    1500px 800px 2px 1px #FFF, 300px 1200px 3px 2px #a855f7, 700px 1600px 2px 1px #FFF, 1100px 1900px 4px 2px #22d3ee, 
+    200px 400px 3px 2px #22d3ee, 800px 1200px 4px 2px #a855f7, 1800px 200px 2px 1px #FFF, 50px 1800px 3px 2px #a855f7;
+  width: 3px;
+  height: 3px;
+  border-radius: 50%;
+  animation: stars-move 10s linear infinite;
+}
+
+.stars-2 {
+  box-shadow: 
+    100px 200px 3px 2px #FFF, 550px 420px 4px 2px #22d3ee, 990px 110px 3px 1px #FFF, 1300px 600px 5px 3px #a855f7, 
+    1600px 900px 3px 2px #FFF, 400px 1300px 4px 2px #22d3ee, 800px 1700px 3px 1px #FFF, 1200px 2000px 5px 3px #a855f7,
+    600px 100px 4px 2px #22d3ee, 1000px 1000px 6px 3px #a855f7, 1400px 1500px 4px 2px #FFF;
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  opacity: 1;
+  animation: stars-move 15s linear infinite;
+}
+
+@keyframes pan-grid {
+  0% { background-position: 0 0; }
+  100% { background-position: 60px 60px; }
+}
+
+/* Fundo Dinâmico de Grade */
+.cyber-grid {
+  background-image: 
+    linear-gradient(to right, rgba(168, 85, 247, 0.05) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(168, 85, 247, 0.05) 1px, transparent 1px);
+  background-size: 60px 60px;
+  mask-image: radial-gradient(circle at center, black, transparent 90%);
+  animation: pan-grid 4s linear infinite;
+}
+
+.animate-gradient {
+  animation: gradient 3s linear infinite;
+}
+
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+::-webkit-scrollbar-track {
+  @apply bg-background;
+}
+
+::-webkit-scrollbar-thumb {
+  @apply bg-primary/20 rounded-full hover:bg-primary/40 transition-all;
+}
